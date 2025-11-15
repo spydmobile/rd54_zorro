@@ -1,0 +1,4 @@
+Radiomaster Pocket Built-In Antenna Bracket for EP1 by ya-mrgrey on Thingiverse: https://www.thingiverse.com/thing:6672761
+
+Summary:
+Remix of the Radiomaster Pocket internal antenna bracket ( https://www.thingiverse.com/thing:6568363) for the new design of Happymodel EP1 antenna.Original design works well for the older style Happymodel EP1 antenna, but it looks like Happymodel updated their EP1 to have larger plastic central piece and wider antenna arms (see photo).Newer antenna design doesn't fit into the bracket because of its thicker arms. This is a simple remix with wider channels for antenna arms, so the new EP1 fits.
