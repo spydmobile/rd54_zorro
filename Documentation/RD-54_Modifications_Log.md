@@ -2,7 +2,7 @@
 
 **Aircraft Designator**: RD-54 (Code Name: Zorro)
 **Operator**: SpyD (Franco Nogarin)
-**Last Updated**: November 14, 2025
+**Last Updated**: November 15, 2025
 
 ---
 
@@ -17,9 +17,10 @@ This log tracks all engineering changes and modifications to RD-54 "Zorro" from 
 | MOD # | Date | Category | Component | Status | Impact |
 |-------|------|----------|-----------|--------|--------|
 | MOD-001 | Nov 2025 | Enhancement | GPS/GPS-Mate Stack | Completed | Added VIFLY GPS-Mate, improved GPS elevation |
+| MOD-002 | Nov 15, 2025 | Replacement | VTX System | In Progress | Changed from Walksnail Moonlight to HDZero Freestyle V2 |
 
-**Total Modifications**: 1
-**Current Configuration**: Original Build Spec + GPS Stack Enhancement
+**Total Modifications**: 2
+**Current Configuration**: Original Build Spec + GPS Stack Enhancement + HDZero VTX
 
 ---
 
@@ -113,6 +114,86 @@ Assembly has been fabricated, wired, and tested off-aircraft. Ready to install w
 - Timeline: Updated in RD-54_Build_Timeline.md
 - Parts List: Updated in RD-54_AsBuilt_Parts_List.md
 - Reference Photo: `Documentation/reference/build-images/GPS_Stack.jpg`
+
+---
+
+### MOD-002 - VTX System Technology Change (Walksnail → HDZero)
+
+**Date Proposed**: November 15, 2025
+**Date Implemented**: In Progress
+**Category**: Replacement
+**Status**: In Progress
+
+#### Original Configuration
+
+| Component | Part Number | Specification |
+|-----------|-------------|---------------|
+| VTX | Walksnail Moonlight | Digital HD VTX, large footprint kit, JST-SH 4-pin power, LHCP pigtails |
+| Camera | Walksnail Moonlight Camera | Integrated with VTX kit |
+| Antennas | LHCP (included with kit) | Left-hand circular polarization |
+
+#### Modified Configuration
+
+| Component | Part Number | Specification |
+|-----------|-------------|---------------|
+| VTX | HDZero Freestyle V2 | Digital HD VTX (specifications TBD) |
+| Camera | HDZero Freestyle V2 Camera | Integrated with VTX |
+| Antennas | TBD | TBD |
+
+#### Rationale
+
+**Technical Justification**:
+- Both systems are digital HD - technology swap with similar capabilities
+- HDZero Freestyle V2 became available from mapping mission
+- Installation ramifications similar between both digital systems
+- Allows RD-54 to proceed while RD-59 timeline shifted
+
+**Performance Impact**:
+- Expected: Similar HD digital video performance
+- Expected: Comparable latency and range characteristics
+- Expected: Similar installation footprint and wiring requirements
+
+**Operator Notes**:
+RD-59 project timeline changed and won't be airworthy for a while. HDZero Freestyle V2 showed up from yesterday's mapping mission, making it available for RD-54 instead. Since both are digital systems, the install approach should be comparable.
+
+#### Parts Required
+
+| Part | Vendor | Order Date | Cost | Status |
+|------|--------|------------|------|--------|
+| HDZero Freestyle V2 VTX/Camera | From mapping mission | N/A | N/A | ✓ Available |
+| Walksnail Moonlight (original) | - | May 17, 2025 | - | ⏳ Reassigned to other aircraft |
+
+#### Installation Procedure
+
+- [ ] Design and print any required camera/VTX mounts
+- [ ] Mount HDZero Freestyle V2 VTX to frame
+- [ ] Mount HDZero camera
+- [ ] Wire VTX power to FC (verify voltage requirements)
+- [ ] Wire VTX data connections (if applicable)
+- [ ] Route antenna(s)
+- [ ] Bench test video system
+- [ ] Flight test video quality
+
+#### Implementation Notes
+
+**Installation Date**: TBD (in progress)
+**Installed By**: SpyD
+
+**Notes**:
+Modification identified on November 15, 2025 after arm covers were completed. HDZero system will be installed after antenna mounts are designed/printed and ExpressLRS receiver is installed.
+
+#### Post-Modification Performance
+
+**Test Flight Date**: TBD
+**Test Results**: TBD
+
+**Expected vs Actual**: TBD
+
+#### Related Documents
+
+- Incident: N/A
+- Timeline: Updated in RD-54_Build_Timeline.md (November 15, 2025)
+- Parts List: Updated in RD-54_AsBuilt_Parts_List.md
 
 ---
 

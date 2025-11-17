@@ -6,7 +6,7 @@
 **Primary Mission**: Exploration and cinematic FPV flights with HD digital video
 **Current Status**: Under Construction - Assembly Phase
 **Airworthiness**: Not Yet Airworthy
-**Last Updated**: November 14, 2025
+**Last Updated**: November 15, 2025
 
 ---
 
@@ -42,6 +42,14 @@
 | Component | Part Number/Model | Quantity | Status | Notes |
 |-----------|------------------|----------|---------|-------|
 | **Frame** | FlyFishRC Volador VX3.5 | 1 | ✓ Assembled | X-config, 3.5" wheelbase |
+| **Feet - All 4** | Custom 3D Printed (TPU) | 4 | ✓ Installed | Tall screw-mounted style, doubled height, ~15mm ground clearance, even stance, remixed from factory parts (6052757) |
+| **Arm Covers - Front** | Custom 3D Printed (TPU) | 2 | ✓ V4 Installed | Bambu TPU, V4 design, remixed from Chimera 90mm |
+| **Arm Covers - Rear** | Custom 3D Printed (TPU) | 2 | ✓ V5 Installed | Bambu TPU, 0.12mm HQ, V5 with integrated V2.0 antenna clips |
+| **Antenna Clips** | Integrated into V5 Rear Covers | 2 | ✓ Installed | V2.0 design: bigger body with T-leg slot, strong retention, shim-mounted to one side |
+| **Side Panels (Stack Protectors)** | Custom 3D Printed (TPU) | 2 | ✓ Installed | "RD-54 ZORRO" embossed, FC/ESC protection, remixed from than.gs/m/1260429, minor cleanup needed |
+| **EP1 RX Holder** | Custom 3D Printed (TPU) | 1 | ✓ Installed | V6 design successful: MakerWorld holder + factory mounting flanges, underside mount, 0.12mm HQ, works as planned |
+| **HDZero Antenna Holder** | Custom 3D Printed (TPU) | 1 | ⚠️ Printing | Bambu TPU, 0.12mm HQ, rear mount, source: makerworld.com/en/models/1769720 |
+| **XT60 Mount** | Custom 3D Printed (TPU) | 1 | ⚠️ Printing | Bambu TPU, 0.12mm HQ, rear standoff mount, source: makerworld.com/en/models/1203681 (XT30 design used for XT60) |
 | **GPS Mount** | Custom 3D Printed (TPU) | 1 | ✓ Fabricated (ready to install) | Yellow TPU, modular stack design - see MOD-001 |
 
 ---
@@ -63,6 +71,7 @@
 | **Battery #1** | GNB 880mAh 6S HV 160C XT30 | 1 | ✓ Available | GNB8806S160AHV |
 | **Battery #2** | GNB 880mAh 6S HV 160C XT30 | 1 | ✓ Available | GNB8806S160AHV |
 | **Connector Type** | XT30 | - | ✓ Installed | Battery/aircraft interface on FC |
+| **9V BEC** | External BEC Module (included with FC) | 1 | ✓ Available | Switchable 9V/12V output, for HDZero VTX power from VBAT, mounting location TBD |
 
 ---
 
@@ -70,8 +79,9 @@
 
 | Component | Part Number/Model | Quantity | Status | Notes |
 |-----------|------------------|----------|---------|-------|
-| **VTX** | Walksnail Moonlight | 1 | ⏳ Not Installed | Large footprint kit, JST-SH 4-pin power, LHCP pigtails included |
-| **Camera** | (Included with Moonlight kit) | 1 | ⏳ Not Installed | Integrated with VTX |
+| **VTX** | HDZero Freestyle V2 | 1 | ✓ Test Fit Complete | Digital HD VTX, 3M tape mounting, clearances validated - see MOD-002 |
+| **Camera** | HDZero Freestyle V2 Camera | 1 | ✓ Test Fit Complete | Front-mounted in aluminum cage (mini bando style for close-quarters flying) |
+| **Original VTX** | ~~Walksnail Moonlight~~ | 1 | ⏳ Reassigned | Replaced by HDZero per MOD-002 |
 
 ---
 
@@ -80,6 +90,7 @@
 | Component | Part Number/Model | Quantity | Status | Notes |
 |-----------|------------------|----------|---------|-------|
 | **Receiver** | HappyModel ExpressLRS EP1 Dual-TCXO | 1 | ✓ Available (not installed) | Original diverted to other aircraft, second EP1 located for RD-54 |
+| **RX Antennas** | HappyModel EP1 Dual T-Antennas | 2 | ✓ Available (not installed) | ELRS antennas, V5 arm covers will integrate clips for rear arms |
 
 ---
 
@@ -113,9 +124,21 @@
 - ✓ Motors mounted to frame (all 4)
 - ✓ All motors wired to AIO (4 of 4 complete - Nov 14, 2025)
 - ✓ FC/ESC stack installed and positioned
+- ✓ All 4 custom feet installed - tall screw-mounted configuration, even stance at ~15mm clearance (Nov 15, 2025)
+- ✓ Custom arm covers installed (V4 on front arms, V5 with antenna clips on rear arms - Nov 15, 2025)
+- ✓ Side panels (stack protectors) installed with RD-54 Zorro designation (Nov 15, 2025)
+- ✓ EP1 RX holder V6 installed and working - mounted to underside frame (Nov 15, 2025)
 - ✓ Custom GPS stack fabricated and wired (ready for installation - will be installed last)
-- ⏳ VTX/Camera installation (next major task)
-- ⏳ Receiver not installed (EP1 available)
+- ✓ HDZero VTX/Camera test fit completed - clearances validated (Nov 15, 2025)
+- ✓ Full assembly mockup validated - no collisions, wire routing visualized (Nov 15, 2025)
+- ✓ Power requirement discovered - 6S HV too high for HDZero, 9V BEC solution identified (Nov 15, 2025)
+- ⚠️ GPS/GPS-Mate/FC custom wiring harness design in progress (splicing JST connectors)
+- ⚠️ HDZero antenna holder printing
+- ⚠️ XT60 mount printing
+- ⏳ 9V BEC installation (mounting location TBD, required for HDZero power)
+- ⏳ HDZero VTX/Camera installation (test fit complete, awaiting 9V BEC, antenna holder, and wiring)
+- ⏳ Receiver not installed (EP1 available, RX holder ready)
+- ⏳ Antennas ready to mount (clips installed, awaiting receiver installation)
 - ⏳ Buzzer not installed
 - ⏳ GPS stack mounting (planned as final component)
 - ⏳ Betaflight configuration not started
@@ -126,15 +149,23 @@
   - Added VIFLY GPS-Mate for lost-model recovery
   - Custom modular stack design for improved GPS elevation
   - See `RD-54_Modifications_Log.md` for details
+- **MOD-002**: VTX system change (November 15, 2025)
+  - Changed from Walksnail Moonlight to HDZero Freestyle V2
+  - Both digital HD systems, similar install approach
+  - RD-59 timeline shift made HDZero available from mapping mission
+  - See `RD-54_Modifications_Log.md` for details
 
 ---
 
 ## Pending Upgrades/Changes
 
-**Immediate Next Steps**:
-- Install Walksnail Moonlight VTX/Camera system (next major task)
-- Install ExpressLRS receiver
+**Immediate Next Steps** (as of November 15, 2025):
+- Install HappyModel EP1 receiver
+- Mount and route dual T-antennas to rear arm V5 clips
+- Design and print any required mounts for HDZero Freestyle V2
+- Install HDZero Freestyle V2 VTX/Camera system
 - Install buzzer
+- Design/print additional underside protection (antenna clips need crash protection)
 - Wire management and routing
 - Mount GPS stack to frame (planned as final component)
 - Install top plate
@@ -161,9 +192,20 @@
 
 ## Notes
 
-- **Mission Focus**: Digital FPV Cruiser - designed for smooth exploration flights with HD video recording
-- **Video System**: Walksnail Moonlight HD digital FPV (LHCP pigtails included)
+- **Mission Focus**: Digital FPV Cruiser with Mini Bando style - smooth exploration and close-quarters flying with HD video
+- **Video System**: HDZero Freestyle V2 digital HD FPV (changed from Walksnail per MOD-002)
+- **Camera Setup**: Front-mounted in aluminum cage (mini bando style for close-quarters navigation and proximity flying)
+- **Power Solution**: 9V BEC required for HDZero VTX (6S HV battery voltage too high for direct connection)
+- **BEC Path**: VBAT → 9V BEC (switchable 9V/12V) → HDZero VTX
+- **Custom Parts**: TPU arm covers - V4 on front arms, V5 with integrated V2.0 antenna clips on rear arms (0.12mm HQ print)
+- **Ground Clearance**: All 4 feet tall and screw-mounted at ~15mm clearance (initially 2 tall/2 short, upgraded for even stance)
+- **RX Holder Success**: V6 design works as planned after 5 iterations (underside mount with hybrid design approach)
+- **Antenna Retention**: V2.0 clips with T-leg slot design provide strong hold, won't release unless serious crash
+- **Mounting Method**: HDZero VTX uses included 3M tape mounting (test fit validated, no clearance issues)
+- **Custom Wiring**: GPS/GPS-Mate/FC require custom splice harness (JST connectors from each component)
 - **GPS Mounting**: Custom TPU stack provides elevation and integrates VIFLY GPS-Mate (MOD-001)
+- **3D Print Sources**: Mix of remixed designs (arm covers, side panels, RX holder) and community models from MakerWorld/Thangs
+- **XT60 Adaptation**: Using XT30 mount design for XT60 connector (compatible mounting pattern)
 - **GPS Features**: Enables GPS Rescue, Return Home, and position hold in Betaflight
 - **Battery Chemistry**: HV batteries (High Voltage LiPo) - 6S 22.2V nominal
 - **Flight Time**: Expected 8-12 minutes in cruising flight
