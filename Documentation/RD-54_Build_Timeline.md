@@ -196,11 +196,19 @@ All 4 motors successfully wired to SpeedyBee AIO:
 **Power Requirement Discovery**:
 - **Issue**: 6S HV battery (22.2V nominal) exceeds HDZero VTX voltage tolerance
 - **Requirement**: HDZero requires 9V regulated power
-- **Solution**: External 9V BEC (included with SpeedyBee FC package)
-  - Specs: Switchable 9V/12V output, current rating TBD
+- **Solution**: External BEC module (included with SpeedyBee FC package)
+  - Specs: Switchable 5V/9V/12V output, current rating TBD
+  - **Current Status**: BEC currently configured for 5V output
+  - **Required Action**: Modify BEC configuration from 5V to 9V
   - Power path: VBAT → 9V BEC → HDZero VTX
   - Mounting location: TBD
 - **Importance**: Discovered during test fit phase - would have caused issues if found during final installation
+
+**EP1 Receiver Preparation Required**:
+- **Status**: EP1 receiver available, RX holder V6 installed and ready
+- **Required Before Installation**: Apply heat shrink to EP1 receiver
+- **Then**: Install heat-shrinked receiver into mounted holder
+- **Antennas**: Dual T-antennas ready to mount in V5 arm cover clips after receiver installation
 
 **GPS Wiring Harness Design** (⚠️ In Progress):
 - **Purpose**: Custom harness to connect GPS, GPS-Mate, and FC
@@ -292,7 +300,11 @@ Planned activities:
 | November 15, 2025 | HDZero VTX test fit and full assembly mockup | ✓ Completed |
 | November 15, 2025 | EP1 RX holder V6 printed, installed, and working | ✓ Completed |
 | November 15, 2025 | All 4 feet upgraded to tall screw-mounted configuration | ✓ Completed |
-| November 15, 2025 | VTX antenna holder and XT60 mount printing | ⚠️ In Progress |
+| November 15, 2025 | HDZero antenna holder and XT60 mount printed | ✓ Completed |
+| TBD | BEC modification (5V → 9V configuration change) | ⏳ Pending |
+| TBD | EP1 receiver heat shrink and installation | ⏳ Pending |
+| TBD | HDZero antenna holder installation | ⏳ Pending |
+| TBD | XT60 mount installation | ⏳ Pending |
 | TBD | EP1 receiver installed | ⏳ Pending |
 | TBD | HDZero VTX/Camera installed | ⏳ Pending |
 | TBD | Buzzer installed | ⏳ Pending |
@@ -369,14 +381,15 @@ Planned activities:
 - [x] Iterate EP1 RX holder design (V1-V6, V6 successful - Nov 15, 2025)
 - [x] Install EP1 RX holder V6 to underside frame (works as planned - Nov 15, 2025)
 - [x] Print and install 2 more tall feet to replace front (all 4 now tall screw-mounted - Nov 15, 2025)
+- [x] Print HDZero antenna holder and XT60 mount (0.12mm HQ TPU - Nov 15, 2025)
 - [⚠️] Design GPS/GPS-Mate/FC custom wiring harness (splicing JST connectors - Nov 15, 2025)
-- [⚠️] Print HDZero antenna holder and XT60 mount (0.12mm HQ TPU - Nov 15, 2025)
 - [ ] Fabricate GPS wiring harness (splice GPS, GPS-Mate, FC connections)
+- [ ] Modify BEC from 5V to 9V configuration
 - [ ] Determine 9V BEC mounting location and install
-- [ ] Design and print front bumper redesign (may incorporate adjustable camera mount)
-- [ ] Install HappyModel ExpressLRS EP1 receiver into holder
+- [ ] Apply heat shrink to EP1 receiver
+- [ ] Install heat-shrinked EP1 receiver into mounted holder
 - [ ] Mount and route dual T-antennas to rear arm V5 clips
-- [ ] Install HDZero VTX antenna holder (rear mount)
+- [ ] Install HDZero antenna holder to rear mount
 - [ ] Wire and install 9V BEC (VBAT → 9V BEC → HDZero VTX)
 - [ ] Install HDZero Freestyle V2 VTX/Camera system with 9V power (see MOD-002)
 - [ ] Install XT60 mount to rear standoffs beneath top plate

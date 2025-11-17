@@ -48,8 +48,8 @@
 | **Antenna Clips** | Integrated into V5 Rear Covers | 2 | ✓ Installed | V2.0 design: bigger body with T-leg slot, strong retention, shim-mounted to one side |
 | **Side Panels (Stack Protectors)** | Custom 3D Printed (TPU) | 2 | ✓ Installed | "RD-54 ZORRO" embossed, FC/ESC protection, remixed from than.gs/m/1260429, minor cleanup needed |
 | **EP1 RX Holder** | Custom 3D Printed (TPU) | 1 | ✓ Installed | V6 design successful: MakerWorld holder + factory mounting flanges, underside mount, 0.12mm HQ, works as planned |
-| **HDZero Antenna Holder** | Custom 3D Printed (TPU) | 1 | ⚠️ Printing | Bambu TPU, 0.12mm HQ, rear mount, source: makerworld.com/en/models/1769720 |
-| **XT60 Mount** | Custom 3D Printed (TPU) | 1 | ⚠️ Printing | Bambu TPU, 0.12mm HQ, rear standoff mount, source: makerworld.com/en/models/1203681 (XT30 design used for XT60) |
+| **HDZero Antenna Holder** | Custom 3D Printed (TPU) | 1 | ✓ Printed | Bambu TPU, 0.12mm HQ, rear mount, source: makerworld.com/en/models/1769720, not yet installed |
+| **XT60 Mount** | Custom 3D Printed (TPU) | 1 | ✓ Printed | Bambu TPU, 0.12mm HQ, rear standoff mount, source: makerworld.com/en/models/1203681 (XT30 design used for XT60), not yet installed |
 | **GPS Mount** | Custom 3D Printed (TPU) | 1 | ✓ Fabricated (ready to install) | Yellow TPU, modular stack design - see MOD-001 |
 
 ---
@@ -71,7 +71,7 @@
 | **Battery #1** | GNB 880mAh 6S HV 160C XT30 | 1 | ✓ Available | GNB8806S160AHV |
 | **Battery #2** | GNB 880mAh 6S HV 160C XT30 | 1 | ✓ Available | GNB8806S160AHV |
 | **Connector Type** | XT30 | - | ✓ Installed | Battery/aircraft interface on FC |
-| **9V BEC** | External BEC Module (included with FC) | 1 | ✓ Available | Switchable 9V/12V output, for HDZero VTX power from VBAT, mounting location TBD |
+| **9V BEC** | External BEC Module (included with FC) | 1 | ⚠️ Needs Modification | Currently configured for 5V, needs modification to 9V for HDZero VTX power, mounting location TBD |
 
 ---
 
@@ -89,8 +89,8 @@
 
 | Component | Part Number/Model | Quantity | Status | Notes |
 |-----------|------------------|----------|---------|-------|
-| **Receiver** | HappyModel ExpressLRS EP1 Dual-TCXO | 1 | ✓ Available (not installed) | Original diverted to other aircraft, second EP1 located for RD-54 |
-| **RX Antennas** | HappyModel EP1 Dual T-Antennas | 2 | ✓ Available (not installed) | ELRS antennas, V5 arm covers will integrate clips for rear arms |
+| **Receiver** | HappyModel ExpressLRS EP1 Dual-TCXO | 1 | ⚠️ Needs Heat Shrink | Available, needs heat shrink before installation into mounted holder |
+| **RX Antennas** | HappyModel EP1 Dual T-Antennas | 2 | ✓ Available (not installed) | ELRS antennas, ready to mount in V5 arm cover clips |
 
 ---
 
@@ -132,12 +132,16 @@
 - ✓ HDZero VTX/Camera test fit completed - clearances validated (Nov 15, 2025)
 - ✓ Full assembly mockup validated - no collisions, wire routing visualized (Nov 15, 2025)
 - ✓ Power requirement discovered - 6S HV too high for HDZero, 9V BEC solution identified (Nov 15, 2025)
+- ✓ HDZero antenna holder printed (Nov 15, 2025)
+- ✓ XT60 mount printed (Nov 15, 2025)
 - ⚠️ GPS/GPS-Mate/FC custom wiring harness design in progress (splicing JST connectors)
-- ⚠️ HDZero antenna holder printing
-- ⚠️ XT60 mount printing
-- ⏳ 9V BEC installation (mounting location TBD, required for HDZero power)
-- ⏳ HDZero VTX/Camera installation (test fit complete, awaiting 9V BEC, antenna holder, and wiring)
-- ⏳ Receiver not installed (EP1 available, RX holder ready)
+- ⚠️ BEC currently configured for 5V, needs modification to 9V
+- ⚠️ EP1 receiver needs heat shrink before installation
+- ⏳ HDZero antenna holder installation (printed, ready to install)
+- ⏳ XT60 mount installation (printed, ready to install)
+- ⏳ 9V BEC modification and installation (5V→9V switch, mounting location TBD)
+- ⏳ EP1 heat shrink and installation into mounted holder
+- ⏳ HDZero VTX/Camera installation (test fit complete, awaiting 9V BEC and antenna holder)
 - ⏳ Antennas ready to mount (clips installed, awaiting receiver installation)
 - ⏳ Buzzer not installed
 - ⏳ GPS stack mounting (planned as final component)
