@@ -122,7 +122,9 @@ Both systems must be maintained in parallel. Never create issues without updatin
 5. **Maintenance Tasks** - Routine checks, replacements, calibrations
 6. **Enhancements** - Performance upgrades, new capabilities
 
-**⚠️ CRITICAL RULE**: Every issue MUST be assigned to a milestone when created. If no appropriate milestone exists, create one first. No exceptions.
+**⚠️ CRITICAL RULES**:
+- Every issue MUST be assigned to a milestone when created. If no appropriate milestone exists, create one first. No exceptions.
+- Every issue MUST be added to the project board immediately after creation. No exceptions.
 
 **When NOT to create issues**:
 - Documentation updates (commit directly)
@@ -143,13 +145,17 @@ When the operator reports actionable work:
      --assignee "@me"
    ```
 
-   **⚠️ MANDATORY REQUIREMENTS**:
+   **⚠️ MANDATORY REQUIREMENTS** (NEVER skip these steps):
+
+   **1. Milestone Assignment** (REQUIRED):
    - Every issue MUST be assigned to a milestone. No exceptions.
    - If no appropriate milestone exists, create one before creating the issue
    - Use `gh api repos/spydmobile/rd54_zorro/milestones -X POST -f title="Milestone Name" -f description="Description"`
    - Never create an issue without a milestone assignment
 
-   **⚠️ CRITICAL**: After creating issue, IMMEDIATELY add it to the project board:
+   **2. Project Board Addition** (REQUIRED):
+
+   After creating issue, IMMEDIATELY add it to the project board. This is NOT optional:
    ```bash
    # Get issue node ID
    ISSUE_ID=$(gh issue view ISSUE_NUMBER --repo spydmobile/rd54_zorro --json id --jq '.id')

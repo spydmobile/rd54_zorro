@@ -1,4 +1,4 @@
-# GitHub Project Management Setup for Drone Projects v1.04
+# GitHub Project Management Setup for Drone Projects v1.05
 
 **Purpose**: This document provides a complete prompt for Claude Code to set up a comprehensive GitHub-based project management system for your drone build project.
 
@@ -9,12 +9,14 @@
 - GitHub Project board for visual task management (linked to repository)
 - Kanban Board and Milestone Roadmap views
 - Milestones for tracking major build goals
-- Initial issues for pending work (all assigned to milestones)
+- Initial issues for pending work (all assigned to milestones AND project board)
 - Documentation in your CLAUDE.md file
 - View setup guide for project configuration
 - **Mandatory milestone assignment policy**
+- **Mandatory project board addition policy**
 
 **Version History**:
+- v1.05 (2025-11-19): Added mandatory project board addition requirement (ALL issues must be on project board)
 - v1.04 (2025-11-19): Added mandatory milestone assignment requirement (no exceptions)
 - v1.03 (2025-11-17): Added project views setup (Kanban Board + Milestone Roadmap)
 - v1.02 (2025-11-17): Added project-to-repository linking step
@@ -119,9 +121,27 @@ For each issue:
 - Assign appropriate labels
 - **⚠️ MANDATORY: Assign to a relevant milestone** (every issue MUST have a milestone, no exceptions)
 - Assign to me (the repository owner)
-- Add to the project board
+- **⚠️ MANDATORY: Add to the project board** (every issue MUST be on the project board, no exceptions)
 
-**CRITICAL RULE**: If you need to create an issue that doesn't fit any existing milestone, create a new milestone first, then create the issue with that milestone assignment. Never create an issue without a milestone.
+**CRITICAL RULES**:
+1. If you need to create an issue that doesn't fit any existing milestone, create a new milestone first, then create the issue with that milestone assignment. Never create an issue without a milestone.
+2. **IMMEDIATELY after creating each issue**, add it to the project board using the GraphQL API:
+   ```bash
+   # Get the issue node ID
+   ISSUE_ID=$(gh issue view ISSUE_NUMBER --repo OWNER/REPO --json id --jq '.id')
+
+   # Add to project board
+   gh api graphql -f query='
+   mutation {
+     addProjectV2ItemById(input: {
+       projectId: "PROJECT_ID"
+       contentId: "'$ISSUE_ID'"
+     }) {
+       item { id }
+     }
+   }'
+   ```
+3. **NEVER skip the project board addition step**. All issues must be visible on the project board.
 
 ### Step 6: Create Project View Setup Guide
 
