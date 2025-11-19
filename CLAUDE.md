@@ -143,10 +143,30 @@ When the operator reports actionable work:
      --assignee "@me"
    ```
 
-   **⚠️ MANDATORY REQUIREMENT**: Every issue MUST be assigned to a milestone. No exceptions.
+   **⚠️ MANDATORY REQUIREMENTS**:
+   - Every issue MUST be assigned to a milestone. No exceptions.
    - If no appropriate milestone exists, create one before creating the issue
    - Use `gh api repos/spydmobile/rd54_zorro/milestones -X POST -f title="Milestone Name" -f description="Description"`
    - Never create an issue without a milestone assignment
+
+   **⚠️ CRITICAL**: After creating issue, IMMEDIATELY add it to the project board:
+   ```bash
+   # Get issue node ID
+   ISSUE_ID=$(gh issue view ISSUE_NUMBER --repo spydmobile/rd54_zorro --json id --jq '.id')
+
+   # Add to project (Project ID: PVT_kwHOABBD-s4BIifE)
+   gh api graphql -f query='
+   mutation {
+     addProjectV2ItemById(input: {
+       projectId: "PVT_kwHOABBD-s4BIifE"
+       contentId: "'$ISSUE_ID'"
+     }) {
+       item { id }
+     }
+   }'
+   ```
+
+   **Never create an issue without adding it to the project board immediately.**
 
 2. **Document in Markdown**:
    - Update `RD-54_AsBuilt_Parts_List.md` (if parts affected)
