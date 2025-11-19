@@ -71,7 +71,7 @@
 | **Battery #1** | GNB 880mAh 6S HV 160C XT30 | 1 | ✓ Available | GNB8806S160AHV |
 | **Battery #2** | GNB 880mAh 6S HV 160C XT30 | 1 | ✓ Available | GNB8806S160AHV |
 | **Connector Type** | XT30 | - | ✓ Installed | Battery/aircraft interface on FC |
-| **9V BEC** | External BEC Module (included with FC) | 1 | ✓ Configured | Modified to 9V output (soldered jumper per SpeedyBee instructions), tested at 9V, ready for VTX installation, will be mounted inline with VTX power cable under top plate |
+| **9V BEC** | External BEC Module (included with FC) | 1 | ✓ Configured | Modified to 9V output (soldered jumper per SpeedyBee instructions), tested at 9V, rated 2A @ 9V (sufficient for HDZero 15W/1.67A requirement), ready for VTX installation, will be mounted inline with VTX power cable under top plate |
 
 ---
 
