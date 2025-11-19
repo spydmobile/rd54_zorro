@@ -1,4 +1,4 @@
-# GitHub Project Management Setup for Drone Projects v1.03
+# GitHub Project Management Setup for Drone Projects v1.04
 
 **Purpose**: This document provides a complete prompt for Claude Code to set up a comprehensive GitHub-based project management system for your drone build project.
 
@@ -9,11 +9,13 @@
 - GitHub Project board for visual task management (linked to repository)
 - Kanban Board and Milestone Roadmap views
 - Milestones for tracking major build goals
-- Initial issues for pending work
+- Initial issues for pending work (all assigned to milestones)
 - Documentation in your CLAUDE.md file
 - View setup guide for project configuration
+- **Mandatory milestone assignment policy**
 
 **Version History**:
+- v1.04 (2025-11-19): Added mandatory milestone assignment requirement (no exceptions)
 - v1.03 (2025-11-17): Added project views setup (Kanban Board + Milestone Roadmap)
 - v1.02 (2025-11-17): Added project-to-repository linking step
 - v1.01 (2025-11-17): Initial release
@@ -102,6 +104,8 @@ Create the following milestones using the GitHub API (`gh api`):
 3. **Ready To Fly** - All critical systems operational and airworthy
 4. **Maiden Flight** - First successful flight by current operator
 
+**Important**: These milestones will be used for ALL issues. Every issue MUST be assigned to a milestone.
+
 ### Step 5: Create Initial Issues
 
 Based on my drone's current status, create GitHub issues for:
@@ -113,9 +117,11 @@ Based on my drone's current status, create GitHub issues for:
 For each issue:
 
 - Assign appropriate labels
-- Assign to the relevant milestone
+- **⚠️ MANDATORY: Assign to a relevant milestone** (every issue MUST have a milestone, no exceptions)
 - Assign to me (the repository owner)
 - Add to the project board
+
+**CRITICAL RULE**: If you need to create an issue that doesn't fit any existing milestone, create a new milestone first, then create the issue with that milestone assignment. Never create an issue without a milestone.
 
 ### Step 6: Create Project View Setup Guide
 
@@ -141,6 +147,9 @@ Add a comprehensive "GitHub Issues & Project Management" section to my CLAUDE.md
 4. **When to Create GitHub Issues**: Define when issues should be created (crashes, parts orders, modifications, bugs, maintenance)
 
 5. **Issue Creation Workflow**: Step-by-step process for creating and documenting issues
+   - **⚠️ CRITICAL**: Include mandatory milestone assignment requirement
+   - Document how to create new milestones if needed
+   - Emphasize that every issue MUST have a milestone with NO exceptions
 
 6. **Integration Between Issues and Docs**: How to cross-reference between GitHub issues and Markdown documentation
 
@@ -151,16 +160,22 @@ Add a comprehensive "GitHub Issues & Project Management" section to my CLAUDE.md
    - Closing issues
    - Adding issues to project board
    - Listing milestones
+   - Creating new milestones
 
 8. **Issue Lifecycle**: Explain the typical flow from creation to completion
 
 9. **Best Practices**: Guidelines for issue titles, bodies, labels, and comments
+   - **⚠️ MANDATORY**: Emphasize that milestones are required for every issue
 
 10. **Milestone Assignment Guidelines**: Which types of issues go to which milestones
+    - Include instructions for creating new milestones when needed
 
 11. **Project Views**: Document available views and when to use each
 
-Also update the "Future Claude Instances" section to remind future Claude sessions to check open GitHub issues when starting work.
+Also update the "Future Claude Instances" section to:
+- Remind future Claude sessions to check open GitHub issues when starting work
+- **Add verification step**: Check that all issues have milestone assignments
+- Provide command: `gh issue list --repo OWNER/REPO --json number,title,milestone`
 
 ### Step 8: Commit Changes
 
@@ -175,6 +190,7 @@ Give me a summary of:
 - Number of labels created
 - Number of milestones created
 - Number of initial issues created
+- **Confirm**: All issues have milestone assignments ✓
 - How to access the project in VS Code or GitHub web
 - **Reminder**: Configure Kanban Board and Milestone Roadmap views using GHPM_View_Setup_Guide.md (~2 minutes)
 
@@ -192,6 +208,7 @@ After running this prompt, you will have:
 ✓ Project board linked to your repository for better integration
 ✓ Four milestones tracking major build goals
 ✓ Initial issues created for your pending work
+✓ **All issues assigned to milestones (mandatory policy)**
 ✓ Complete documentation in CLAUDE.md for future Claude sessions
 ✓ GHPM_View_Setup_Guide.md for quick view configuration
 ✓ All changes committed to your repository
@@ -234,6 +251,7 @@ Once set up, Claude Code will automatically:
 
 - Create GitHub issues when you report crashes, parts orders, or modifications
 - Assign issues to you with appropriate labels and milestones
+- **Ensure every issue has a milestone assignment (mandatory policy)**
 - Update Markdown documentation alongside GitHub issues
 - Cross-reference between issues and documentation
 - Track progress on the project board
@@ -248,8 +266,34 @@ You can access your issues and project board:
 
 1. **Daily**: Check Kanban Board view for active tasks
 2. **Weekly**: Review Milestone Roadmap to track progress toward goals
-3. **On Crash/Issue**: Create GitHub issue + document in Markdown
+3. **On Crash/Issue**: Create GitHub issue + document in Markdown (assign milestone!)
 4. **On Completion**: Close issue + update Markdown with results
+
+---
+
+## Milestone Assignment Policy
+
+**⚠️ MANDATORY REQUIREMENT**: Every issue MUST be assigned to a milestone. No exceptions.
+
+**Why This Matters**:
+- Milestones provide clear goals and deadlines
+- Milestone Roadmap view requires milestone assignments to be useful
+- Unassigned issues are invisible on roadmap planning
+- Helps prioritize work toward major project goals
+
+**How to Handle Edge Cases**:
+- If no existing milestone fits, create a new one first
+- Use `gh api repos/OWNER/REPO/milestones -X POST -f title="Name" -f description="Desc"`
+- Then assign the new milestone to your issue
+- Future Claude instances will enforce this policy automatically
+
+**Verification**:
+Check that all issues have milestones:
+```bash
+gh issue list --repo OWNER/REPO --json number,title,milestone
+```
+
+Any issue showing `"milestone": null` needs immediate milestone assignment.
 
 ---
 
@@ -263,6 +307,7 @@ The system is self-maintaining through Claude Code, but you can:
 - Add new labels or milestones as needed
 - Create filtered views for specific workflows
 - Enable workflow automation for auto-archiving completed items
+- **Verify all new issues have milestone assignments**
 
 ---
 
@@ -270,6 +315,7 @@ The system is self-maintaining through Claude Code, but you can:
 
 This project management system was developed for drone build projects. Reference implementations:
 - RD-53 "Bandit": <https://github.com/spydmobile/RD53_Bandit>
+- RD-54 "Zorro": <https://github.com/spydmobile/rd54_zorro>
 - RD-59 "Nazgul": <https://github.com/spydmobile/RD59_Nazgul>
 
 For questions or improvements, refer to the CLAUDE.md file in your repository after setup.
