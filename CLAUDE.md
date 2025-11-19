@@ -122,6 +122,8 @@ Both systems must be maintained in parallel. Never create issues without updatin
 5. **Maintenance Tasks** - Routine checks, replacements, calibrations
 6. **Enhancements** - Performance upgrades, new capabilities
 
+**⚠️ CRITICAL RULE**: Every issue MUST be assigned to a milestone when created. If no appropriate milestone exists, create one first. No exceptions.
+
 **When NOT to create issues**:
 - Documentation updates (commit directly)
 - Minor clarifications or note-taking
@@ -140,6 +142,11 @@ When the operator reports actionable work:
      --milestone "Milestone Name" \
      --assignee "@me"
    ```
+
+   **⚠️ MANDATORY REQUIREMENT**: Every issue MUST be assigned to a milestone. No exceptions.
+   - If no appropriate milestone exists, create one before creating the issue
+   - Use `gh api repos/spydmobile/rd54_zorro/milestones -X POST -f title="Milestone Name" -f description="Description"`
+   - Never create an issue without a milestone assignment
 
 2. **Document in Markdown**:
    - Update `RD-54_AsBuilt_Parts_List.md` (if parts affected)
@@ -270,6 +277,8 @@ gh project list --owner spydmobile
 - Multiple labels OK: `video-system,pending-install,priority: high`
 
 **Milestones**:
+- **MANDATORY**: Every issue MUST be assigned to a milestone - no exceptions
+- If no appropriate milestone exists, create one before creating the issue
 - Assign issues to milestones for progress tracking
 - Use milestone due dates for timeline visualization in Roadmap view
 - Close milestone only when ALL issues complete
@@ -707,6 +716,7 @@ The operator (SpyD/Franco) will inform you of:
 
 2. **Check Open GitHub Issues**:
    - Run: `gh issue list --repo spydmobile/rd54_zorro --assignee "@me"`
+   - **VERIFY**: All issues have milestone assignments (run: `gh issue list --repo spydmobile/rd54_zorro --json number,title,milestone`)
    - Review active tasks on Kanban Board: https://github.com/users/spydmobile/projects/15
    - Check milestone progress (Working Video, Working GPS, Ready To Fly, Maiden Flight)
    - Identify any blocked or high-priority issues
