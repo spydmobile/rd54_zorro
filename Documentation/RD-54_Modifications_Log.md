@@ -86,7 +86,7 @@ Lost-model recovery is critical for a small 3.5" platform that could be difficul
 
 **Design Date**: November 2025
 **Print Date**: November 2025
-**Wiring Completed**: November 2025
+**Wiring Completed**: November 19, 2025
 **Installation Status**: Ready for installation (not yet mounted to aircraft)
 **Designed/Built By**: SpyD
 
@@ -95,11 +95,30 @@ Lost-model recovery is critical for a small 3.5" platform that could be difficul
 - Modular vertical stack configuration
 - GPS module on top ("ANTENNA THIS SIDE UP" orientation)
 - VIFLY GPS-Mate in middle section
-- Both components pre-wired with harnesses ready for FC connection
+- Custom wiring harness fabricated (5-pin JST + 2 I2C solder wires)
 - Integrated mounting points for frame installation
 
+**Custom Wiring Harness** (Completed November 19, 2025):
+- **5-pin JST Connector** (FC → GPS-Mate):
+  - Black = GND
+  - White = TX (from FC) → RX (to GPS-Mate)
+  - Green = RX (from FC) → TX (to GPS-Mate)
+  - Red = 5V
+  - Yellow = BZ- (buzzer negative)
+- **I2C Solder Connections**:
+  - Drone SDA wire (white) → solder to GPS-Mate SDA wire (green)
+  - Drone SCL wire (blue) → solder to GPS-Mate SCL wire (blue)
+
+**Installation Procedure**:
+1. Mount GPS stack to frame (install last after other components)
+2. Plug 5-pin JST connector from drone harness into GPS-Mate
+3. Solder drone SDA wire (white) to GPS-Mate SDA wire (green)
+4. Solder drone SCL wire (blue) to GPS-Mate SCL wire (blue)
+5. Verify all connections secure and insulated
+6. Configure GPS in Betaflight
+
 **Notes**:
-Assembly has been fabricated, wired, and tested off-aircraft. Ready to install when frame wiring phase continues. See reference photo: `Documentation/reference/build-images/GPS_Stack.jpg`
+Assembly has been fabricated, wired, and tested off-aircraft. Drone-side harness complete. Ready to install when frame wiring phase continues. See reference photo: `Documentation/reference/build-images/GPS_Stack.jpg`
 
 #### Post-Modification Performance
 

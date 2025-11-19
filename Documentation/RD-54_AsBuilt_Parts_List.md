@@ -98,8 +98,9 @@
 
 | Component | Part Number/Model | Quantity | Status | Notes |
 |-----------|------------------|----------|---------|-------|
-| **GPS/GNSS** | GEPRC M10-DQ | 1 | ✓ Wired (ready to install) | With DPS310 barometer, integrated into custom GPS stack (MOD-001) |
-| **GPS-Mate** | VIFLY GPS-Mate | 1 | ✓ Wired (ready to install) | Lost-model finder beacon, integrated into custom GPS stack (MOD-001) |
+| **GPS/GNSS** | GEPRC M10-DQ | 1 | ✓ Wired (ready to install) | With DPS310 barometer, integrated into custom GPS stack (MOD-001), drone-side harness complete |
+| **GPS-Mate** | VIFLY GPS-Mate | 1 | ✓ Wired (ready to install) | Lost-model finder beacon, integrated into custom GPS stack (MOD-001), drone-side harness complete |
+| **GPS Wiring Harness** | Custom FC→GPS-Mate Harness | 1 | ✓ Fabricated | 5-pin JST (GND/TX/RX/5V/BZ-) + 2 I2C solder wires (SDA white, SCL blue), see MOD-001 for install procedure |
 
 ---
 
@@ -134,7 +135,7 @@
 - ✓ Power requirement discovered - 6S HV too high for HDZero, 9V BEC solution identified (Nov 15, 2025)
 - ✓ HDZero antenna holder printed (Nov 15, 2025)
 - ✓ XT60 mount printed (Nov 15, 2025)
-- ⚠️ GPS/GPS-Mate/FC custom wiring harness design in progress (splicing JST connectors)
+- ✓ GPS/GPS-Mate/FC custom wiring harness fabricated (Nov 19, 2025) - 5-pin JST + I2C solder wires
 - ⚠️ BEC currently configured for 5V, needs modification to 9V
 - ⚠️ EP1 receiver needs heat shrink before installation
 - ⏳ HDZero antenna holder installation (printed, ready to install)

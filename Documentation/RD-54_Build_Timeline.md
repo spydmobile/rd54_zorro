@@ -210,11 +210,14 @@ All 4 motors successfully wired to SpeedyBee AIO:
 - **Then**: Install heat-shrinked receiver into mounted holder
 - **Antennas**: Dual T-antennas ready to mount in V5 arm cover clips after receiver installation
 
-**GPS Wiring Harness Design** (⚠️ In Progress):
+**GPS Wiring Harness Design** (✓ Completed November 19, 2025):
 - **Purpose**: Custom harness to connect GPS, GPS-Mate, and FC
-- **Approach**: Splice individual wiring harnesses together
-- **Connectors**: JST connectors from each component (GPS, GPS-Mate, FC)
-- **Status**: Currently designing and fabricating custom splice harness
+- **Approach**: Spliced individual wiring harnesses together
+- **Harness Components**:
+  - 5-pin JST connector (FC → GPS-Mate): GND (black), TX→RX (white), RX→TX (green), 5V (red), BZ- (yellow)
+  - 2 separate I2C solder wires: Drone SDA (white) → GPS-Mate SDA (green), Drone SCL (blue) → GPS-Mate SCL (blue)
+- **Status**: Fabrication complete, ready for installation
+- **Installation**: Plug 5-pin JST first, then solder I2C wires
 
 **References**:
 - VTX test fit: `Documentation/reference/build-images/IMG_5648_test_fit_VTX.jpg`
@@ -301,6 +304,7 @@ Planned activities:
 | November 15, 2025 | EP1 RX holder V6 printed, installed, and working | ✓ Completed |
 | November 15, 2025 | All 4 feet upgraded to tall screw-mounted configuration | ✓ Completed |
 | November 15, 2025 | HDZero antenna holder and XT60 mount printed | ✓ Completed |
+| November 19, 2025 | GPS/GPS-Mate/FC wiring harness fabricated | ✓ Completed |
 | TBD | BEC modification (5V → 9V configuration change) | ⏳ Pending |
 | TBD | EP1 receiver heat shrink and installation | ⏳ Pending |
 | TBD | HDZero antenna holder installation | ⏳ Pending |
@@ -349,6 +353,9 @@ Planned activities:
 - Mini bando style: Front-mounted camera in aluminum cage optimized for close-quarters flying
 - Plan ahead: Mockup helps visualize wire routing and identify future redesigns (front bumper with adjustable camera mount)
 - Custom wiring harnesses: GPS/GPS-Mate/FC integration requires custom splice harness with JST connectors
+- Harness fabrication success: 5-pin JST + 2 I2C solder wires approach allows clean, modular connection (Nov 19, 2025)
+- Wire color documentation critical: Recording wire colors during fabrication prevents confusion during installation
+- Installation sequence matters: Plug JST first, then solder I2C wires for easiest access
 
 **Component Sourcing**:
 - Original ExpressLRS EP1 diverted to other aircraft mid-build
@@ -382,8 +389,8 @@ Planned activities:
 - [x] Install EP1 RX holder V6 to underside frame (works as planned - Nov 15, 2025)
 - [x] Print and install 2 more tall feet to replace front (all 4 now tall screw-mounted - Nov 15, 2025)
 - [x] Print HDZero antenna holder and XT60 mount (0.12mm HQ TPU - Nov 15, 2025)
-- [⚠️] Design GPS/GPS-Mate/FC custom wiring harness (splicing JST connectors - Nov 15, 2025)
-- [ ] Fabricate GPS wiring harness (splice GPS, GPS-Mate, FC connections)
+- [x] Design GPS/GPS-Mate/FC custom wiring harness (splicing JST connectors - Nov 15, 2025)
+- [x] Fabricate GPS wiring harness (splice GPS, GPS-Mate, FC connections - Nov 19, 2025)
 - [ ] Modify BEC from 5V to 9V configuration
 - [ ] Determine 9V BEC mounting location and install
 - [ ] Apply heat shrink to EP1 receiver

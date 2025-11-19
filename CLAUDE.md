@@ -28,6 +28,313 @@ This is a **documentation repository** for the RD-54 "Zorro" drone build project
 
 **Important**: This is NOT a software/firmware development repository. It contains only Markdown documentation files for hardware tracking.
 
+## MANDATORY: Context Window Monitoring
+
+**CRITICAL REQUIREMENT FOR ALL AI INSTANCES:**
+
+You MUST actively monitor your context window usage throughout the session and warn the user when approaching limits.
+
+**Required Actions:**
+
+1. **Monitor token usage** - Check the system warnings that show token usage (e.g., "Token usage: X/200000")
+2. **Calculate percentage** - Determine how much context has been consumed
+3. **Warn at 80% usage** - When 80% of context is used (20% remaining), IMMEDIATELY warn the user with:
+   - Current token count
+   - Percentage used
+   - Recommendation to start fresh session or continue carefully
+4. **Continue monitoring** - After first warning, provide updates every 5% increment
+
+**Example Warning Message:**
+
+```
+⚠️  CONTEXT WARNING: We've used 160k/200k tokens (80%).
+We have 40k tokens (20%) remaining.
+
+Recommend starting a fresh session to avoid context rot and ensure quality responses.
+Would you like to continue or shall I prepare a handoff document?
+```
+
+**Why This Matters:**
+
+Context rot leads to:
+- Poor decision making
+- Unauthorized code changes
+- Loss of situational awareness
+- Catastrophic damage to the codebase
+
+**Failure to monitor context is unacceptable.** The user can see token usage - you can too. Use it.
+
+---
+
+## GitHub Issues & Project Management
+
+**CRITICAL**: RD-54 uses a **dual-track documentation system**:
+1. **Markdown Documentation** - Comprehensive technical archive (this repository)
+2. **GitHub Issues & Projects** - Active task tracking and workflow management
+
+Both systems must be maintained in parallel. Never create issues without updating Markdown docs, and vice versa.
+
+### GitHub Project Structure
+
+**Project**: RD-54 Zorro Project Tracker
+**Project Number**: 15
+**Project URL**: https://github.com/users/spydmobile/projects/15
+**Repository**: spydmobile/rd54_zorro
+
+**Milestones**:
+1. **Working Video** (Milestone #1) - FPV video system installed and operational
+2. **Working GPS** (Milestone #2) - GPS system installed, configured, and acquiring satellites
+3. **Ready To Fly** (Milestone #3) - All critical systems operational and airworthy
+4. **Maiden Flight** (Milestone #4) - First successful flight by current operator
+
+**Project Views**:
+- **Kanban Board** (default) - Status-based workflow (Todo → In Progress → Done)
+- **Milestone Roadmap** - Timeline view grouped by milestones
+- **All Items** - Complete table view of all issues
+
+**View Setup**: See `GHPM_View_Setup_Guide.md` for configuration instructions (~2 minutes)
+
+### Issue Label System
+
+**Task Type Labels**:
+- `incident` - Crash reports and damage assessments
+- `modification` - Planned or in-progress modifications
+- `parts-ordered` - Parts ordered, awaiting delivery
+- `pending-install` - Parts received, awaiting installation
+- `maintenance` - Routine maintenance tasks
+- `enhancement` - Improvements and upgrades
+
+**Priority Labels**:
+- `priority: critical` - Airworthiness/safety critical issues
+- `priority: high` - Important but not safety critical
+
+**Component Labels**:
+- `video-system` - FPV video system related
+- `radio-system` - Radio/receiver related
+
+### When to Create GitHub Issues
+
+**ALWAYS create a GitHub issue for**:
+1. **Incidents** - Every crash, damage event, or operational failure
+2. **Parts Ordered** - Track delivery and installation timeline
+3. **Modifications** - Track MOD-XXX changes from planning to completion
+4. **Bugs/Problems** - Component failures, configuration issues
+5. **Maintenance Tasks** - Routine checks, replacements, calibrations
+6. **Enhancements** - Performance upgrades, new capabilities
+
+**When NOT to create issues**:
+- Documentation updates (commit directly)
+- Minor clarifications or note-taking
+- Routine operator notes that don't require action
+
+### Issue Creation Workflow
+
+When the operator reports actionable work:
+
+1. **Create GitHub Issue**:
+   ```bash
+   gh issue create --repo spydmobile/rd54_zorro \
+     --title "Descriptive Title" \
+     --body "## Description\n\nDetailed description\n\n## Tasks\n- [ ] Task 1\n- [ ] Task 2" \
+     --label "label1,label2" \
+     --milestone "Milestone Name" \
+     --assignee "@me"
+   ```
+
+2. **Document in Markdown**:
+   - Update `RD-54_AsBuilt_Parts_List.md` (if parts affected)
+   - Update `RD-54_Incident_Log.md` (if incident)
+   - Update `RD-54_Modifications_Log.md` (if modification)
+   - Update `RD-54_Build_Timeline.md` (add milestone)
+
+3. **Cross-Reference**:
+   - Add issue link to Markdown docs: `See GitHub Issue #X`
+   - Add Markdown reference in issue body: `Reference: RD-54_Incident_Log.md`
+
+### Integration Between Issues and Docs
+
+**Markdown Documentation** provides:
+- Complete technical specifications
+- Detailed rationale and engineering decisions
+- Comprehensive incident reports with damage tables
+- Modification history and lessons learned
+- Permanent archive that survives project board changes
+
+**GitHub Issues** provides:
+- Active task tracking and workflow management
+- Visual kanban board for daily work
+- Milestone progress tracking
+- Assignee and priority management
+- Comment threads for ongoing discussions
+
+**Best Practice**: Write comprehensive details in Markdown, create concise actionable issues in GitHub, cross-reference between both.
+
+### Common gh CLI Commands
+
+**Creating Issues**:
+```bash
+# Basic issue
+gh issue create --repo spydmobile/rd54_zorro --title "Issue Title" --body "Description"
+
+# Issue with labels, milestone, assignee
+gh issue create --repo spydmobile/rd54_zorro \
+  --title "Install HDZero VTX" \
+  --body "Detailed description" \
+  --label "video-system,pending-install,priority: high" \
+  --milestone "Working Video" \
+  --assignee "@me"
+
+# Issue from template (if templates exist)
+gh issue create --repo spydmobile/rd54_zorro --template incident-report.md
+```
+
+**Listing Issues**:
+```bash
+# All open issues
+gh issue list --repo spydmobile/rd54_zorro
+
+# Issues by label
+gh issue list --repo spydmobile/rd54_zorro --label "priority: critical"
+
+# Issues by milestone
+gh issue list --repo spydmobile/rd54_zorro --milestone "Working Video"
+
+# Issues assigned to you
+gh issue list --repo spydmobile/rd54_zorro --assignee "@me"
+
+# Issues with custom fields
+gh issue list --repo spydmobile/rd54_zorro --json number,title,labels,milestone,assignees
+```
+
+**Updating Issues**:
+```bash
+# Add labels
+gh issue edit 1 --repo spydmobile/rd54_zorro --add-label "priority: high"
+
+# Change milestone
+gh issue edit 1 --repo spydmobile/rd54_zorro --milestone "Ready To Fly"
+
+# Add comment
+gh issue comment 1 --repo spydmobile/rd54_zorro --body "Test fit completed, ready to install"
+```
+
+**Closing Issues**:
+```bash
+# Close issue
+gh issue close 1 --repo spydmobile/rd54_zorro
+
+# Close with comment
+gh issue close 1 --repo spydmobile/rd54_zorro --comment "VTX installed and tested successfully"
+```
+
+**Project Management**:
+```bash
+# List milestones
+gh api repos/spydmobile/rd54_zorro/milestones
+
+# View project (requires project number)
+gh project view 15 --owner spydmobile
+
+# List projects
+gh project list --owner spydmobile
+```
+
+### Issue Lifecycle
+
+1. **Created** → Issue opened with labels, milestone, assignee
+2. **Todo** → Issue visible on Kanban Board in Todo column
+3. **In Progress** → Drag to "In Progress" when starting work
+4. **Work Done** → Complete tasks, update Markdown docs, add closing comment
+5. **Done** → Close issue (moves to Done column, auto-archived if enabled)
+
+**Important**: Always update Markdown documentation BEFORE closing issues. Closed issues may be archived, but Markdown docs are the permanent record.
+
+### Best Practices
+
+**Issue Titles**:
+- Be specific and actionable: "Install HDZero VTX" not "Video stuff"
+- Start with action verb: Install, Fix, Replace, Test, Configure
+- Include component name: "Install ExpressLRS EP1 Receiver"
+
+**Issue Bodies**:
+- Use `## Description` section for overview
+- Use `## Tasks` with checkboxes for sub-tasks
+- Use `## Reference` to link Markdown docs
+- Include relevant technical details (part numbers, voltages, etc.)
+- Add `## Dependencies` if blocked by other issues
+
+**Labels**:
+- Always add task type label (incident, modification, pending-install, etc.)
+- Add priority label for urgent work
+- Add component label for system-specific issues
+- Multiple labels OK: `video-system,pending-install,priority: high`
+
+**Milestones**:
+- Assign issues to milestones for progress tracking
+- Use milestone due dates for timeline visualization in Roadmap view
+- Close milestone only when ALL issues complete
+
+**Comments**:
+- Add progress updates as comments
+- Document test results and observations
+- Note any problems or changes to plan
+- Cross-reference related issues with `#N` syntax
+
+### Milestone Assignment Guidelines
+
+**Working Video** milestone:
+- HDZero/Walksnail VTX installation
+- Camera mounting and configuration
+- BEC/power system for video
+- Antenna installation
+- Video system testing
+
+**Working GPS** milestone:
+- GPS module installation
+- GPS-Mate installation
+- GPS wiring and configuration
+- Satellite acquisition testing
+- GPS features (Rescue, RTH) testing
+
+**Ready To Fly** milestone:
+- Receiver installation
+- Betaflight configuration
+- All safety systems operational
+- Pre-flight checks complete
+- Bench testing complete
+- Airworthiness sign-off
+
+**Maiden Flight** milestone:
+- First flight planning
+- LOS hover test
+- FPV flight test
+- Initial PID tuning
+- Performance evaluation
+
+### Project Views Usage
+
+**Kanban Board** (Daily Use):
+- Check "Todo" column for next tasks
+- Move issues to "In Progress" when starting work
+- Update issue with progress comments
+- Move to "Done" and close when complete
+- Filter by label/milestone for focused views
+
+**Milestone Roadmap** (Weekly Review):
+- Visualize progress toward major goals
+- Identify blockers to airworthiness
+- Adjust milestone due dates if needed
+- Reassign issues between milestones if priorities change
+- Celebrate milestone completions!
+
+**All Items** (Searching & Reports):
+- Search for specific issues or keywords
+- Bulk edit multiple issues
+- Generate status reports
+- Review complete project history
+
+---
+
 ### ⚠️ CRITICAL: Source of Truth
 
 **THIS REPOSITORY IS THE AUTHORITATIVE SOURCE FOR RD-54 TECHNICAL SPECIFICATIONS.**
@@ -398,25 +705,34 @@ The operator (SpyD/Franco) will inform you of:
    - `RD-54_AsBuilt_Parts_List.md` (current config)
    - Most recent entries in Incident and Modifications logs
 
-2. **Understand Your Role**:
+2. **Check Open GitHub Issues**:
+   - Run: `gh issue list --repo spydmobile/rd54_zorro --assignee "@me"`
+   - Review active tasks on Kanban Board: https://github.com/users/spydmobile/projects/15
+   - Check milestone progress (Working Video, Working GPS, Ready To Fly, Maiden Flight)
+   - Identify any blocked or high-priority issues
+
+3. **Understand Your Role**:
    - You are the archivist and SME
    - Accuracy and completeness matter more than speed
    - Capture the "why" behind decisions
    - Maintain chronological integrity
+   - Maintain dual-track documentation (Markdown + GitHub Issues)
 
-3. **Check Current Status**:
+4. **Check Current Status**:
    - What's the latest incident number?
    - What's the latest modification number?
    - What's pending installation?
    - What are current known issues?
+   - Which GitHub issues are open/in progress?
 
-4. **When Operator Arrives**:
+5. **When Operator Arrives**:
    - Ask what they need documented
    - Get complete details before writing
    - Update all relevant documents
    - Cross-reference between files
+   - Create/update GitHub issues as needed
 
-5. **Maintain Standards**:
+6. **Maintain Standards**:
    - Follow markdown formatting conventions
    - Use established templates
    - Keep technical specs accurate
