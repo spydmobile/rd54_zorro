@@ -104,10 +104,16 @@ Lost-model recovery is critical for a small 3.5" platform that could be difficul
   - White = TX (from FC) → RX (to GPS-Mate)
   - Green = RX (from FC) → TX (to GPS-Mate)
   - Red = 5V
-  - Yellow = BZ- (buzzer negative)
+  - Yellow = BZ- (buzzer negative from FC to GPS-Mate built-in buzzer)
 - **I2C Solder Connections**:
   - Drone SDA wire (white) → solder to GPS-Mate SDA wire (green)
   - Drone SCL wire (blue) → solder to GPS-Mate SCL wire (blue)
+
+**Buzzer Integration**:
+- GPS-Mate has integrated buzzer service
+- FC buzzer pads wired to GPS-Mate BZ- (yellow wire in 5-pin JST)
+- Provides all buzzer functions: arming, battery warnings, lost model beacon, etc.
+- **No external buzzer needed** - GPS-Mate handles all buzzer functionality
 
 **Installation Procedure**:
 1. Mount GPS stack to frame (install last after other components)

@@ -108,7 +108,7 @@
 
 | Component | Part Number/Model | Quantity | Status | Notes |
 |-----------|------------------|----------|---------|-------|
-| **Buzzer** | 5V Standard Buzzer | 1 | ⏳ Not Installed | To be mounted near top plate |
+| **Buzzer** | Integrated in GPS-Mate | 1 | ✓ Wired | FC buzzer contacts wired to GPS-Mate BZ- (yellow wire in 5-pin JST), external buzzer not needed |
 
 ---
 
@@ -144,7 +144,7 @@
 - ⏳ EP1 heat shrink and installation into mounted holder
 - ⏳ HDZero VTX/Camera installation (test fit complete, awaiting 9V BEC and antenna holder)
 - ⏳ Antennas ready to mount (clips installed, awaiting receiver installation)
-- ⏳ Buzzer not installed
+- ✓ Buzzer integrated via GPS-Mate (FC buzzer pads wired to GPS-Mate BZ-)
 - ⏳ GPS stack mounting (planned as final component)
 - ⏳ Betaflight configuration not started
 - ⏳ Radio binding not started
@@ -164,12 +164,12 @@
 
 ## Pending Upgrades/Changes
 
-**Immediate Next Steps** (as of November 15, 2025):
-- Install HappyModel EP1 receiver
+**Immediate Next Steps** (as of November 19, 2025):
+- Modify BEC from 5V to 9V configuration
+- Install HappyModel EP1 receiver (heat shrink first)
 - Mount and route dual T-antennas to rear arm V5 clips
-- Design and print any required mounts for HDZero Freestyle V2
-- Install HDZero Freestyle V2 VTX/Camera system
-- Install buzzer
+- Install HDZero Freestyle V2 VTX/Camera system (requires 9V BEC)
+- Install HDZero antenna holder and XT60 mount
 - Design/print additional underside protection (antenna clips need crash protection)
 - Wire management and routing
 - Mount GPS stack to frame (planned as final component)
@@ -181,6 +181,7 @@
 ## Known Issues
 
 **Current Blockers**:
+- BEC needs modification from 5V to 9V (blocks VTX installation)
 - VTX/Camera not installed (required for FPV operation)
 - Receiver not installed (required for control)
 - No configuration or testing completed yet
@@ -209,6 +210,7 @@
 - **Mounting Method**: HDZero VTX uses included 3M tape mounting (test fit validated, no clearance issues)
 - **Custom Wiring**: GPS/GPS-Mate/FC require custom splice harness (JST connectors from each component)
 - **GPS Mounting**: Custom TPU stack provides elevation and integrates VIFLY GPS-Mate (MOD-001)
+- **Buzzer Integration**: GPS-Mate provides all buzzer functionality via FC buzzer pads (BZ- yellow wire), no external buzzer needed
 - **3D Print Sources**: Mix of remixed designs (arm covers, side panels, RX holder) and community models from MakerWorld/Thangs
 - **XT60 Adaptation**: Using XT30 mount design for XT60 connector (compatible mounting pattern)
 - **GPS Features**: Enables GPS Rescue, Return Home, and position hold in Betaflight
