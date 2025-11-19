@@ -71,7 +71,7 @@
 | **Battery #1** | GNB 880mAh 6S HV 160C XT30 | 1 | ✓ Available | GNB8806S160AHV |
 | **Battery #2** | GNB 880mAh 6S HV 160C XT30 | 1 | ✓ Available | GNB8806S160AHV |
 | **Connector Type** | XT30 | - | ✓ Installed | Battery/aircraft interface on FC |
-| **9V BEC** | External BEC Module (included with FC) | 1 | ⚠️ Needs Modification | Currently configured for 5V, needs modification to 9V for HDZero VTX power, mounting location TBD |
+| **9V BEC** | External BEC Module (included with FC) | 1 | ✓ Configured | Modified to 9V output (soldered jumper per SpeedyBee instructions), tested at 9V, ready for VTX installation, will be mounted inline with VTX power cable under top plate |
 
 ---
 
@@ -136,11 +136,11 @@
 - ✓ HDZero antenna holder printed (Nov 15, 2025)
 - ✓ XT60 mount printed (Nov 15, 2025)
 - ✓ GPS/GPS-Mate/FC custom wiring harness fabricated (Nov 19, 2025) - 5-pin JST + I2C solder wires
-- ⚠️ BEC currently configured for 5V, needs modification to 9V
+- ✓ BEC modified to 9V configuration (Nov 19, 2025) - soldered jumper, voltage tested and confirmed
 - ⚠️ EP1 receiver needs heat shrink before installation
 - ⏳ HDZero antenna holder installation (printed, ready to install)
 - ⏳ XT60 mount installation (printed, ready to install)
-- ⏳ 9V BEC modification and installation (5V→9V switch, mounting location TBD)
+- ⏳ 9V BEC mounting and wiring (modified to 9V ✓, will mount inline with VTX power cable, custom mount planned)
 - ⏳ EP1 heat shrink and installation into mounted holder
 - ⏳ HDZero VTX/Camera installation (test fit complete, awaiting 9V BEC and antenna holder)
 - ⏳ Antennas ready to mount (clips installed, awaiting receiver installation)
@@ -181,8 +181,7 @@
 ## Known Issues
 
 **Current Blockers**:
-- BEC needs modification from 5V to 9V (blocks VTX installation)
-- VTX/Camera not installed (required for FPV operation)
+- VTX/Camera not installed (required for FPV operation) - BEC ready ✓
 - Receiver not installed (required for control)
 - No configuration or testing completed yet
 
@@ -202,7 +201,9 @@
 - **Video System**: HDZero Freestyle V2 digital HD FPV (changed from Walksnail per MOD-002)
 - **Camera Setup**: Front-mounted in aluminum cage (mini bando style for close-quarters navigation and proximity flying)
 - **Power Solution**: 9V BEC required for HDZero VTX (6S HV battery voltage too high for direct connection)
-- **BEC Path**: VBAT → 9V BEC (switchable 9V/12V) → HDZero VTX
+- **BEC Configuration**: External BEC modified to 9V output (soldered jumper per SpeedyBee instructions, tested and confirmed 9V)
+- **BEC Mounting**: Inline with VTX power cable under top plate (custom 3D printed mount planned)
+- **Power Path**: 6S HV Battery → VBAT → 9V BEC → HDZero VTX
 - **Custom Parts**: TPU arm covers - V4 on front arms, V5 with integrated V2.0 antenna clips on rear arms (0.12mm HQ print)
 - **Ground Clearance**: All 4 feet tall and screw-mounted at ~15mm clearance (initially 2 tall/2 short, upgraded for even stance)
 - **RX Holder Success**: V6 design works as planned after 5 iterations (underside mount with hybrid design approach)

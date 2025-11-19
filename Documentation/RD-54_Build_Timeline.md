@@ -168,6 +168,32 @@ All 4 motors successfully wired to SpeedyBee AIO:
 - 0.12mm HQ layer height provides both structural strength and improved visual appearance
 - Yellow TPU maintains visibility and crash protection consistency
 
+#### November 19, 2025 - BEC Configuration for HDZero VTX Power
+**Status**: ✓ Completed
+
+**BEC Modification**:
+- External BEC module (included with SpeedyBee FC) modified from 5V to 9V output
+- Soldered 9V jumper per SpeedyBee instructions
+- Voltage tested and confirmed: 9V output ✓
+- **Purpose**: Provide regulated 9V power for HDZero Freestyle V2 VTX
+- **Background**: 6S HV battery (22.2V nominal) exceeds HDZero VTX voltage tolerance
+
+**Mounting Plan**:
+- Location: Inline with VTX power cable under top plate
+- Custom 3D printed mount planned for clean integration
+- Will be mounted and wired during VTX installation (Issue #1)
+
+**Power Path Validated**:
+```
+6S HV Battery → VBAT → 9V BEC → HDZero VTX
+```
+
+**Result**: Critical blocker removed - HDZero VTX installation can now proceed ✓
+
+**References**:
+- GitHub Issue #2 (closed)
+- SpeedyBee BEC configuration instructions followed
+
 #### November 15, 2025 - HDZero VTX Test Fit & Full Assembly Mockup
 **Status**: ✓ Validation Complete
 
@@ -305,7 +331,7 @@ Planned activities:
 | November 15, 2025 | All 4 feet upgraded to tall screw-mounted configuration | ✓ Completed |
 | November 15, 2025 | HDZero antenna holder and XT60 mount printed | ✓ Completed |
 | November 19, 2025 | GPS/GPS-Mate/FC wiring harness fabricated | ✓ Completed |
-| TBD | BEC modification (5V → 9V configuration change) | ⏳ Pending |
+| November 19, 2025 | BEC modification (5V → 9V configuration change) | ✓ Completed |
 | TBD | EP1 receiver heat shrink and installation | ⏳ Pending |
 | TBD | HDZero antenna holder installation | ⏳ Pending |
 | TBD | XT60 mount installation | ⏳ Pending |
@@ -356,6 +382,10 @@ Planned activities:
 - Harness fabrication success: 5-pin JST + 2 I2C solder wires approach allows clean, modular connection (Nov 19, 2025)
 - Wire color documentation critical: Recording wire colors during fabrication prevents confusion during installation
 - Installation sequence matters: Plug JST first, then solder I2C wires for easiest access
+- BEC voltage configuration: Always test output voltage with multimeter after modification - critical for component safety (Nov 19, 2025)
+- Power planning ahead: Identifying voltage requirements during test fit phase prevents last-minute scrambles
+- SpeedyBee BEC: Jumper-based voltage selection (5V/9V/12V) provides flexibility for different component requirements
+- Custom BEC mounting: Planning inline installation with VTX power improves wire management and serviceability
 
 **Component Sourcing**:
 - Original ExpressLRS EP1 diverted to other aircraft mid-build
