@@ -51,6 +51,7 @@
 | **HDZero Antenna Holder** | Custom 3D Printed (TPU) | 1 | ✓ Printed | Bambu TPU, 0.12mm HQ, rear mount, source: makerworld.com/en/models/1769720, not yet installed |
 | **XT60 Mount** | Custom 3D Printed (TPU) | 1 | ✓ Printed | Bambu TPU, 0.12mm HQ, rear standoff mount, source: makerworld.com/en/models/1203681 (XT30 design used for XT60), not yet installed |
 | **GPS Mount** | Custom 3D Printed (TPU) | 1 | ✓ Fabricated (ready to install) | Yellow TPU, modular stack design - see MOD-001 |
+| **Front Bumper/Camera Mount** | Custom 3D Printed (TPU) | 1 | ✓ Installed | Yellow TPU, 0.16mm HQ, tree supports, 5% gyroid infill, remixed from MakerWorld 1791670, smooth leading edge (no sawtooth), lightweight design, 19mm camera mount, HDZero Nano 90 test fit confirmed |
 
 ---
 
@@ -71,7 +72,8 @@
 | **Battery #1** | GNB 880mAh 6S HV 160C XT30 | 1 | ✓ Available | GNB8806S160AHV |
 | **Battery #2** | GNB 880mAh 6S HV 160C XT30 | 1 | ✓ Available | GNB8806S160AHV |
 | **Connector Type** | XT30 | - | ✓ Installed | Battery/aircraft interface on FC |
-| **9V BEC** | External BEC Module (included with FC) | 1 | ✓ Configured | Modified to 9V output (soldered jumper per SpeedyBee instructions), tested at 9V, rated 2A @ 9V (sufficient for HDZero 15W/1.67A requirement), ready for VTX installation, will be mounted inline with VTX power cable under top plate |
+| **9V BEC** | External BEC Module (included with FC) | 1 | ✓ Installed | Modified to 9V output (soldered jumper per SpeedyBee instructions), tested at 9V, rated 2A @ 9V (sufficient for HDZero 15W/1.67A requirement), mounted in custom two-part protective enclosure on rear underside |
+| **BEC Enclosure** | Custom 3D Printed (TPU) | 1 | ✓ Installed | Red TPU, 0.20mm Standard, 100% rectilinear infill, two-part screw-together design, fully encloses BEC, side wire exits, mounted to rear underside bottom plate, crash protection for underside impacts |
 
 ---
 

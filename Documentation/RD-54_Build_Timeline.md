@@ -168,6 +168,104 @@ All 4 motors successfully wired to SpeedyBee AIO:
 - 0.12mm HQ layer height provides both structural strength and improved visual appearance
 - Yellow TPU maintains visibility and crash protection consistency
 
+#### November 20, 2025 - Front Bumper/Camera Mount Design and Installation
+**Status**: ✓ Completed
+
+**Custom Design** (Issue #8):
+- Base model: MakerWorld 1791670 (Volador VX3.5 19mm Camera Bumper for Bando)
+- **Remix rationale**: Original design had critical flaws for bando flying
+  - Sawtooth leading edge would catch branches/vegetation
+  - Bulky structure added unnecessary weight and snag points
+  - Over-engineered ribs provided no benefit in TPU
+
+**Design Improvements**:
+- ✅ Smooth, rounded leading edge (no sawtooth - slides past obstacles)
+- ✅ Lightweight minimal structure (reduced weight)
+- ✅ No snag points (streamlined for tight spaces)
+- ✅ Clean bando profile (optimized for close-quarters flying)
+
+**Print Settings**:
+- Material: Yellow TPU (consistent with other custom parts)
+- Layer height: 0.16mm HQ
+- Supports: Tree supports
+- Infill: 5% gyroid
+
+**Installation**:
+- Mounted to Volador VX3.5 frame
+- HDZero Nano 90 camera (19x19mm mount) test fit: ✅ Perfect fit confirmed
+- Ready for VTX installation (Issue #1)
+
+**Result**: Functional, lightweight front bumper optimized for bando-style flying. All design flaws from original model corrected.
+
+**References**:
+- GitHub Issue #8 (closed)
+- Screenshot: Documentation/reference/screengrabs/Screenshot 2025-11-20 at 6.47.06 AM.png
+
+#### November 21, 2025 - BEC Protective Enclosure Design and Installation
+**Status**: ✓ Completed
+
+**Custom Design** (Issue #9):
+- **Challenge**: BEC needs protection but underside mounting was initially rejected due to crash vulnerability
+- **Solution**: Two-part protective enclosure to allow underside mounting with full crash protection
+- **Location**: Rear underside, mounted to bottom plate with screws
+
+**Design Features**:
+- ✅ Two-part screw-together construction (base + lid)
+- ✅ BEC fully enclosed and protected from impacts
+- ✅ Side wire exits (one opening each side)
+- ✅ Wires soldered to BEC at 45° to center on each side for clean side exits
+- ✅ Screw mounting to bottom plate for secure attachment
+
+**Print Settings**:
+- Material: Red TPU (high visibility, different from yellow custom parts for functional differentiation)
+- Layer height: 0.20mm Standard
+- Infill: 100% rectilinear (maximum strength for crash protection)
+- Supports: Not specified
+
+**BEC Wiring Plan** (documented for VTX installation):
+```
+flowchart TD
+    V[VTX]
+    B(Out<br>BEC<br>In)
+    V <-->|9V| B
+    V <-->|GND| B
+    B <-->|VBAT| F{FC AIO}
+    B <-->|GND| F
+    V <-->|RX| F
+    V <-->|TX| F
+```
+
+**Physical Connections**:
+- **BEC Input** (from FC):
+  - FC VBAT pad → BEC BAT (input) - solder connection
+  - FC GND pad → BEC G (input) - solder connection
+  - BEC S pin: Left floating (LED signal passthrough, not needed for VTX power)
+- **BEC Output** (to VTX via JST harness):
+  - BEC out → VTX power wire (solder to JST harness power wire)
+  - BEC G (output) → VTX GND wire (solder to JST harness GND wire)
+  - BEC LED pin: Left floating (extra LED output, not needed)
+- **VTX Video Control** (bypass BEC, direct to FC):
+  - VTX JST TX wire → FC TX pad (video telemetry via UART)
+  - VTX JST RX wire → FC RX pad (video control via UART)
+
+**Enclosure Wire Management**:
+- 2 wires IN (from FC): VBAT + GND
+- 2 wires OUT (to VTX): 9V + GND
+- VTX TX/RX wires route separately to FC (do not pass through BEC enclosure)
+
+**Installation**:
+- Enclosure mounted to rear underside bottom plate
+- BEC installed inside enclosure
+- Wires routed through side exits
+- Two-part enclosure secured with screws
+- ✅ Test fit confirmed, no clearance issues with battery or other components
+
+**Result**: BEC now protected in crash-resistant enclosure on rear underside. Ready for final wiring to FC and VTX during Issue #1 (VTX installation).
+
+**References**:
+- GitHub Issue #9 (will be closed)
+- Installed photo: Documentation/reference/build-images/IMG_5666_BEC enclosure.jpg
+
 #### November 19, 2025 - BEC Configuration for HDZero VTX Power
 **Status**: ✓ Completed
 
@@ -332,6 +430,8 @@ Planned activities:
 | November 15, 2025 | HDZero antenna holder and XT60 mount printed | ✓ Completed |
 | November 19, 2025 | GPS/GPS-Mate/FC wiring harness fabricated | ✓ Completed |
 | November 19, 2025 | BEC modification (5V → 9V configuration change) | ✓ Completed |
+| November 20, 2025 | Front bumper/camera mount designed, printed, and installed | ✓ Completed |
+| November 21, 2025 | BEC protective enclosure designed, printed, and installed | ✓ Completed |
 | TBD | EP1 receiver heat shrink and installation | ⏳ Pending |
 | TBD | HDZero antenna holder installation | ⏳ Pending |
 | TBD | XT60 mount installation | ⏳ Pending |
@@ -378,6 +478,13 @@ Planned activities:
 - External BEC solution: 9V BEC (included with FC) solves voltage regulation issue for VTX
 - Mini bando style: Front-mounted camera in aluminum cage optimized for close-quarters flying
 - Plan ahead: Mockup helps visualize wire routing and identify future redesigns (front bumper with adjustable camera mount)
+- Critical analysis of base models: Evaluate for functional flaws, not just aesthetics (Nov 20, 2025)
+- Sawtooth edges are dangerous: Smooth, rounded leading edges slide past branches instead of catching them
+- Weight matters on small platforms: Remove unnecessary bulk and over-engineering from remix designs
+- Snag points defeat bando purpose: Streamlined surfaces essential for tight-space flying
+- 0.16mm HQ with tree supports: Good balance of detail and print speed for larger structural parts
+- 5% gyroid infill sufficient for TPU bumpers: Flexibility comes from material, not infill percentage
+- Function over form in remixes: Simplifying "silly" designs often improves both aesthetics AND performance
 - Custom wiring harnesses: GPS/GPS-Mate/FC integration requires custom splice harness with JST connectors
 - Harness fabrication success: 5-pin JST + 2 I2C solder wires approach allows clean, modular connection (Nov 19, 2025)
 - Wire color documentation critical: Recording wire colors during fabrication prevents confusion during installation
@@ -386,6 +493,15 @@ Planned activities:
 - Power planning ahead: Identifying voltage requirements during test fit phase prevents last-minute scrambles
 - SpeedyBee BEC: Jumper-based voltage selection (5V/9V/12V) provides flexibility for different component requirements
 - Custom BEC mounting: Planning inline installation with VTX power improves wire management and serviceability
+- Clearance calculations critical: VTX bay had 19mm clearance, VTX (15mm) + BEC (6mm) = 21mm needed - 2mm short (Nov 21, 2025)
+- Alternative mounting exploration: Test multiple locations (VTX top, camera back, underside) before committing to design
+- Protective enclosures solve vulnerability: Underside mounting viable when component fully enclosed in crash-resistant housing
+- 100% infill for protection: Maximum strength TPU enclosures (100% rectilinear infill) provide crash protection for vulnerable components
+- Two-part enclosures provide serviceability: Screw-together design allows access to enclosed component without destroying mount
+- Color coding for function: Red TPU for protective enclosures vs yellow for general parts - visual differentiation aids identification
+- Wire exit planning: Soldering component leads at 45° to center on each side facilitates clean side-exit wire routing
+- BEC S pin can float: LED signal passthrough pin not needed for pure power regulation applications
+- Rear underside location works: Near battery connector = shorter VBAT wire run, reasonable distance to VTX
 
 **Component Sourcing**:
 - Original ExpressLRS EP1 diverted to other aircraft mid-build
