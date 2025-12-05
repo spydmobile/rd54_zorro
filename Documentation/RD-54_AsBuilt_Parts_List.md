@@ -91,8 +91,9 @@
 
 | Component | Part Number/Model | Quantity | Status | Notes |
 |-----------|------------------|----------|---------|-------|
-| **Receiver** | HappyModel ExpressLRS EP1 Dual-TCXO | 1 | ⚠️ Needs Heat Shrink | Available, needs heat shrink before installation into mounted holder |
-| **RX Antennas** | HappyModel EP1 Dual T-Antennas | 2 | ✓ Available (not installed) | ELRS antennas, ready to mount in V5 arm cover clips |
+| **Receiver** | HappyModel ExpressLRS EP1 Dual-TCXO | 1 | ✓ Installed | Heat shrink applied, mounted in v6.4 RX holder, wired to FC UART6: Red(5V)→4V5, Black(GND)→G, Blue/Yellow(TX)→R6, Blue(RX)→T6 |
+| **RX Holder** | Custom 3D Printed (TPU) | 1 | ✓ Installed | v6.4 design, improved fit, yellow TPU |
+| **RX Antennas** | HappyModel EP1 Dual T-Antennas | 2 | ✓ Installed | ELRS antennas, mounted in V5 arm cover clips |
 
 ---
 

@@ -201,6 +201,33 @@ All 4 motors successfully wired to SpeedyBee AIO:
 - GitHub Issue #8 (closed)
 - Screenshot: Documentation/reference/screengrabs/Screenshot 2025-11-20 at 6.47.06 AM.png
 
+#### November 22, 2025 - EP1 Receiver Assembly and Installation
+**Status**: ✓ Completed
+
+**Completed Work** (Issue #3 - partial):
+- ✅ New RX holder (v6.4) printed - improved fit over previous versions
+- ✅ Leads soldered to EP1 receiver
+- ✅ Heat shrink applied to EP1 receiver
+- ✅ EP1 mounted in v6.4 RX holder
+- ✅ Wired to FC UART6
+
+**EP1 to FC Wiring (UART6)**:
+| Wire Color | EP1 Pin | FC Pad | Purpose |
+|------------|---------|--------|---------|
+| Red | 5V | 4V5 | Power |
+| Black | GND | G | Ground |
+| Blue/Yellow | TX | R6 | Data (TX→RX crossover) |
+| Blue | RX | T6 | Data (RX→TX crossover) |
+
+**T-Antenna Installation**:
+- ✅ Dual T-antennas installed into V5 arm cover clips
+
+**Remaining for Issue #3**:
+- [ ] Bind to transmitter
+- [ ] Configure ELRS in Betaflight
+
+**Result**: EP1 receiver fully installed with antennas. Ready for binding and configuration.
+
 #### November 21, 2025 - BEC Protective Enclosure Design and Installation
 **Status**: ✓ Completed
 
@@ -432,10 +459,9 @@ Planned activities:
 | November 19, 2025 | BEC modification (5V → 9V configuration change) | ✓ Completed |
 | November 20, 2025 | Front bumper/camera mount designed, printed, and installed | ✓ Completed |
 | November 21, 2025 | BEC protective enclosure designed, printed, and installed | ✓ Completed |
-| TBD | EP1 receiver heat shrink and installation | ⏳ Pending |
+| November 22, 2025 | EP1 receiver assembled, mounted, wired to FC UART6, T-antennas in V5 arm clips | ✓ Completed |
 | TBD | HDZero antenna holder installation | ⏳ Pending |
 | TBD | XT60 mount installation | ⏳ Pending |
-| TBD | EP1 receiver installed | ⏳ Pending |
 | TBD | HDZero VTX/Camera installed | ⏳ Pending |
 | TBD | Buzzer installed | ⏳ Pending |
 | TBD | GPS stack mounted to aircraft | ⏳ Pending (final component) |
